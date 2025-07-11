@@ -11,7 +11,7 @@ import 'services/google_ai_service.dart';
 void main() {
   // Initialize Google AI Service with your API key
   // TODO: Replace 'YOUR_GOOGLE_API_KEY' with your actual API key
-  GoogleAIService.initialize('AIzaSyALkIdK-jk1XWTgvPx3Mn-RmCFZPER0k24');
+  GoogleAIService.initialize('YOUR_API_KEY');
   
   runApp(const MyApp());
 }
