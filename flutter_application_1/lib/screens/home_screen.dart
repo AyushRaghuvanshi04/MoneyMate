@@ -5,6 +5,8 @@ import '../services/income_service.dart';
 import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -249,103 +251,122 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin, 
             AnimatedBuilder(
               animation: _pulseAnimation,
               builder: (context, child) {
-                return Transform.scale(
-                  scale: _pulseAnimation.value,
-                  child: Container(
-                    width: double.infinity,
-                    margin: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(28),
-                      gradient: const LinearGradient(
-                        colors: [
-                          Color(0xFF6366F1), // Indigo
-                          Color(0xFF8B5CF6), // Purple
-                          Color(0xFFEC4899), // Pink
-                        ],
-                        begin: Alignment.topLeft,
-                        end: Alignment.bottomRight,
-                      ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xFF6366F1).withOpacity(0.3),
-                          blurRadius: 20,
-                          offset: const Offset(0, 10),
-                        ),
+                return Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(32),
+                    gradient: SweepGradient(
+                      colors: [
+                        Color(0xFF6366F1),
+                        Color(0xFF8B5CF6),
+                        Color(0xFFEC4899),
+                        Color(0xFF6366F1),
                       ],
+                      startAngle: 0.0,
+                      endAngle: 6.28,
+                      transform: GradientRotation(_pulseAnimation.value * 6.28),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 28),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.2),
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: const Icon(Icons.account_balance_wallet_rounded, 
-                                                 color: Colors.white, size: 28),
-                              ),
-                              const SizedBox(width: 16),
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Net Balance',
-                                      style: TextStyle(
-                                        fontSize: 16, 
-                                        color: Colors.white.withOpacity(0.9), 
-                                        fontWeight: FontWeight.w500
-                                      ),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      'Income: ₹${_totalIncome.toStringAsFixed(2)} | Spent: ₹${_totalSpent.toStringAsFixed(2)}',
-                                      style: TextStyle(
-                                        fontSize: 12, 
-                                        color: Colors.white.withOpacity(0.7)
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(3.0), // Border thickness
+                    child: Transform.scale(
+                      scale: _pulseAnimation.value,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(28),
+                          gradient: const LinearGradient(
+                            colors: [
+                              Color(0xFF6366F1), // Indigo
+                              Color(0xFF8B5CF6), // Purple
+                              Color(0xFFEC4899), // Pink
                             ],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
                           ),
-                          const SizedBox(height: 20),
-                          Text(
-                            '₹${_netBalance.toStringAsFixed(2)}',
-                            style: TextStyle(
-                              fontSize: 42,
-                              fontWeight: FontWeight.bold,
-                              color: _netBalance >= 0 ? Colors.white : const Color(0xFFFFB3B3),
-                              letterSpacing: -1.0,
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(0xFF6366F1).withOpacity(0.3),
+                              blurRadius: 20,
+                              offset: const Offset(0, 10),
                             ),
-                          ),
-                          const SizedBox(height: 8),
-                          Row(
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 28),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                                decoration: BoxDecoration(
-                                  color: Colors.white.withOpacity(0.2),
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                child: const Text(
-                                  '💸 Live Tracking',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.all(12),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.2),
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: const Icon(Icons.account_balance_wallet_rounded, 
+                                                     color: Colors.white, size: 28),
                                   ),
+                                  const SizedBox(width: 16),
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Net Balance',
+                                          style: TextStyle(
+                                            fontSize: 16, 
+                                            color: Colors.white.withOpacity(0.9), 
+                                            fontWeight: FontWeight.w500
+                                          ),
+                                        ),
+                                        const SizedBox(height: 4),
+                                        Text(
+                                          'Income: ₹${_totalIncome.toStringAsFixed(2)} | Spent: ₹${_totalSpent.toStringAsFixed(2)}',
+                                          style: TextStyle(
+                                            fontSize: 12, 
+                                            color: Colors.white.withOpacity(0.7)
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 20),
+                              Text(
+                                '₹${_netBalance.toStringAsFixed(2)}',
+                                style: TextStyle(
+                                  fontSize: 42,
+                                  fontWeight: FontWeight.bold,
+                                  color: _netBalance >= 0 ? Colors.white : const Color(0xFFFFB3B3),
+                                  letterSpacing: -1.0,
                                 ),
+                              ),
+                              const SizedBox(height: 8),
+                              Row(
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                    decoration: BoxDecoration(
+                                      color: Colors.white.withOpacity(0.2),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: const Text(
+                                      '💸 Live Tracking',
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        ],
+                        ),
                       ),
                     ),
                   ),

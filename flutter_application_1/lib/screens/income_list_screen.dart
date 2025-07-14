@@ -4,6 +4,8 @@ import '../services/income_service.dart';
 import 'package:intl/intl.dart';
 
 class IncomeListScreen extends StatefulWidget {
+  const IncomeListScreen({super.key});
+
   @override
   _IncomeListScreenState createState() => _IncomeListScreenState();
 }

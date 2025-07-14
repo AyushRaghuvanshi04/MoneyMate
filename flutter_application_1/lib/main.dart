@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'screens/home_screen.dart';
 import 'screens/add_expense_screen.dart';
 import 'screens/expense_list_screen.dart';
-import 'screens/add_income_screen.dart';
 import 'screens/income_list_screen.dart';
 import 'services/google_ai_service.dart';
 

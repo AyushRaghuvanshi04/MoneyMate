@@ -4,6 +4,8 @@ import '../models/expense.dart';
 import 'add_income_screen.dart';
 
 class AddExpenseScreen extends StatefulWidget {
+  const AddExpenseScreen({super.key});
+
   @override
   _AddExpenseState createState() => _AddExpenseState();
 }

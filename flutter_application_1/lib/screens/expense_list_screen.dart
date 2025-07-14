@@ -4,6 +4,8 @@ import '../services/sms_parser_service.dart';
 import 'package:intl/intl.dart';
 
 class ExpenseListScreen extends StatefulWidget {
+  const ExpenseListScreen({super.key});
+
   @override
   _ExpenseListScreenState createState() => _ExpenseListScreenState();
 }
