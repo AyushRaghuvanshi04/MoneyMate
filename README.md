@@ -4,7 +4,7 @@ A Gen Z-centric expense tracker app built with Flutter. Easily track your expens
 
 ## Features
 - 📊 Track expenses and income with a beautiful, modern UI
-- 🧠 Google AI integration for smart financial insights
+- 🧠 Google AI integration for smart financial insights 
 - 🏠 Home dashboard, add expense/income, view lists 
 - 💸 Gen Z-inspired vibrant theme
 - 🔒 Data privacy: all data stays on your device
