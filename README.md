@@ -20,7 +20,7 @@ A Gen Z-centric expense tracker app built with Flutter. Easily track your expens
 - [Flutter](https://flutter.dev/docs/get-started/install) (3.x recommended)
 - A Google API key for AI features (see below)
 
-### Setup
+### Setup 
 1. **Clone the repository:**
    ```bash
    git clone <your-repo-url>
