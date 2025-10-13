@@ -14,7 +14,7 @@ A Gen Z-centric expense tracker app built with Flutter. Easily track your expens
  
 *No screenshots added yet. Coming soon!*
  
-## Getting Started
+## Getting Started 
 
 ### Prerequisites
 - [Flutter](https://flutter.dev/docs/get-started/install) (3.x recommended)
